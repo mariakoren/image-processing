@@ -1,0 +1,7 @@
+a) należy szacować z częstotliwością ok. 1/10pikseli
+
+c) rozmiar 1000x1000 pikseli
+nowa_rozdzielczość = 1000/10 = 100
+skalowanie = 100/1000 = 0.1
+
+też zrobione skalowanie na 70x70 pikseli i nadal dobrze widać

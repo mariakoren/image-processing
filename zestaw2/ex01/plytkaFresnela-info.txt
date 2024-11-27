@@ -1,0 +1,20 @@
+ImageJ 1.54k; Java 1.8.0_345 [64-bit]; Windows 10 10.0; 34MB of 6047MB (<1%)
+ 
+Title: PlytkaFresnela.png
+Width:  1000 pixels
+Height:  1000 pixels
+Size:  977K
+Pixel size: 1x1 pixel^2
+ID: -9
+Bits per pixel: 8 (grayscale LUT)
+Display range: 0-255
+Pixel value range: 0-255
+No threshold
+Magnification: 0.75
+ScaleToFit: false
+Uncalibrated
+Path: C:\Users\maria\Desktop\image-processing\zestaw2\ex01\PlytkaFresnela.png
+Screen location: 111,22 (1536x864)
+No properties
+No overlay
+No selection
