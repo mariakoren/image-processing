@@ -1,0 +1,33 @@
+A)Biały pasek w środku obrazu jest zbudowany z fal płaskich, których kierunek jest prostopadły do orientacji paska. 
+    Dla pionowego paska fale mają kierunek poziomy.
+
+Na podstawie widocznych wyników przedstawionych w obrazie, można zauważyć kilka charakterystycznych zjawisk wynikających z ograniczania widma i rekonstrukcji obrazu:
+
+1. Widmo oryginalne:
+Obraz oryginalny zawiera ostro kontrastujące pionowe linie (np. jasny pasek na czarnym tle).
+W widmie Fourierowskim widoczne są jasne linie wzdłuż osi poziomej (częstotliwości przestrzenne pionowe) oraz słabe linie w kierunku pionowym (wynikające z krawędzi poziomych).
+2. Rekonstrukcja z 10% widma:
+W tej rekonstrukcji widmo zostało ograniczone do centralnych 10%.
+Efekt:
+Rekonstrukcja jest rozmyta i zawiera artefakty w postaci oscylacji (np. pierścieni wokół głównego paska).
+Oscylacje wynikają z efektu Gibbsa, który pojawia się przy przycinaniu widma i wywołuje oscylacje w przestrzeni obrazu.
+Profil liniowy:
+Profil staje się bardziej wygładzony, ale widoczne są oscylacje w okolicach krawędzi jasnego paska (wynikające z ograniczenia widma do centralnych częstotliwości).
+3. Rekonstrukcja z 20% widma:
+Widmo zostało ograniczone do centralnych 20%.
+Efekt:
+Rekonstrukcja lepiej oddaje strukturę oryginału, jednak obraz nadal jest lekko rozmyty.
+Oscylacje wynikające z efektu Gibbsa są mniej widoczne, ponieważ większa część widma została zachowana.
+Profil liniowy:
+Profil jest bardziej zbliżony do oryginalnego (z ostrym przejściem), ale nadal widać niewielkie oscylacje przy krawędziach jasnego paska.
+4. Zjawiska widoczne:
+Efekt Gibbsa:
+Jest najbardziej widoczny przy przycinaniu widma do 10%. Wynika z nagłego "ucięcia" wysokich częstotliwości w widmie, co prowadzi do oscylacji wokół ostrych krawędzi w obrazie.
+Rozmycie:
+Ograniczenie widma skutkuje utratą szczegółów i prowadzi do rozmycia obrazu, ponieważ wysokie częstotliwości (odpowiadające za ostrość i drobne szczegóły) są usuwane.
+Przestrzenna kompensacja:
+Większa ilość zachowanego widma (20%) pozwala na lepsze odwzorowanie oryginału, jednak nawet niewielkie przycięcie widma prowadzi do degradacji obrazu.
+Wnioski:
+Wysokie częstotliwości w widmie Fourierowskim są odpowiedzialne za szczegóły i ostrość obrazu. Ich ograniczenie prowadzi do rozmycia.
+Efekt Gibbsa występuje na krawędziach o ostrym kontraście, zwłaszcza przy silnym przycinaniu widma.
+Zwiększenie zachowanej części widma poprawia jakość rekonstrukcji, ale całkowite odtworzenie szczegółów wymaga pełnego widma.
