@@ -1,0 +1,24 @@
+A) wykonanie fft: process -> fft -> fft
+
+Zasadnicza różnica pomiędzy FFT od obrazów kwiat1 i kwiat2 jest to, że na FFT od kwiat2 widać wyraźne wertykalne linii
+
+B) Najpierw zrobić obrazy A, B, C, D
+
+W tym celu najpierw zaznaczono obszary, okrągiem lub prostokątem i użyto takiej opcji:
+Edit → Options → Colors → Background = Black
+
+Następnie dla obrazów A, B, C Edit -> Clear Outside
+Dla obrazu D Edit -> Clear
+
+Wyniki:
+
+1) dla obrazu A po przeprowadzeniu odwrotnej transformacji Fouriera (process -> fft -> inverse fft)
+    widać lekkie "zamylenie", brak ostrości zdjęcia
+
+2) dla obrazu B widać rozmycia w poziomie. Można wywwnioskawać że te długie linii poziomowe odpowiają za ostrość obrzu
+    w poziomie
+
+3) dla obrazu C tak samo jak w przypadku A zdjęcie nie ma ostrości przy porównaniu z oryginalnym zdjęciem.
+    Ale jeżeli porównać ze zdjęciem po A, to zdjęcie po C jest jednak bardziej dokładne
+
+4) dla obrzu C zostały widoczny tylko krawędzie obrazu zaznaczone na biało
