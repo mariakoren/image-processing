@@ -1,0 +1,16 @@
+Dla punktu a zostało wykonano w programie ImageJ taką kolejnośćią komentd:
+
+Image > Adjust > Threhold 
+
+Mrtoda Otsu, koloryL B&w
+Apply (plik roze-aa)
+
+Jeszcze była opcja:
+
+Image > Adjust > Auto Threhold
+jako metoda Otsy (plik roze-a)
+
+
+Dla opcji C:
+
+Image > Adjust > Local Threhold i radius ustawic na 11 -- nie poprawnie, trzeba zakodować
