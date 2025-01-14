@@ -1,0 +1,2 @@
+interpretacja: przy osobnym wyliczaniu białe krawędzie nieco bardziej wąskie niż przy automatycznym wyliczaniu w imagej
+dlaczego nie mam pojęcia
