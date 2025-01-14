@@ -1,0 +1,26 @@
+Analyze -> Measure  ptaki.png
+
+1	262144	105.546	0	254
+
+jasność 105.546
+
+
+Na obrazie ptaki-b:
+
+gamma 1, jasność 40.914
+gamma 0.5 jasność 80.621
+gamma 0.2 jasność 182.636
+gamma 0.4 jasność 97.410
+gamma 0.3 jasność 118.344
+gamma 0.35 jasność 107.103
+gamma 0.37 jasność 103.059
+gamma 0.36 jasność 105.103
+
+
+
+d) uśrednienie: Process -Smooth
+
+plik c ma zaciemnienia na rogach, jeżeli uśrednienie od razu (plik d) tego nie ma
+na c więcej szumu
+część po prawej (bardziej ciemna ściana) na d jest czarna
+
