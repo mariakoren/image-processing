@@ -1,0 +1,26 @@
+na podstawie tej informacji napisz kod poprawnie
+
+W obrazie AlbertEinstein-modied.png prosz¦
+(a) odczyta¢ cytat Einsteina (obraz) schowany w pªaszczy¹nie bitowej,
+
+Obraz (w skali szarości, G = 256) można podzielić na osiem różnych poziomów
+(płaszczyzn) bitowych. Każda płaszczyzna bitowa obrazu otrzymywana jest poprzez operację ∧ z obrazem o wartości szarości każdego piksela równej (2n)10, n =
+0 . . . 7. Na przykład czwartą płaszczyznę bitową otrzymuje się poprzez operację ∧
+z obrazem o wartości szarości (00001000)2 , piątą poprzez operację ∧ z obrazem
+(00010000)2 itd. −→ grafika 7.22
+Przykład: czwarta płaszczyzna bitowa dla wartości (72)10
+(72)10 ∧ (16)10 = (01001000)2 ∧ (00001000)2
+= (00001000)2
+= (8)10
+
+Płaszczyzny bitów niższego rzędu na pierwszy rzut oka wydają się być całkowicie czarne, ponieważ ich maksymalna jasność wynosi tylko 1 (poziom pierwszego
+bitu), 2 (poziom drugiego bitu) lub 4 (poziom trzeciego bitu). Dlatego obrazy na
+grafice 7.23 zostały odpowiednio przeskalowane.
+Można zauważyć, że płaszczyzny bitów wyższego rzędu określają, czy obszar obrazu jest jasny, czy ciemny. Płaszczyzny bitów niższego rzędu wpływają tylko na
+drobne struktury.
+Wpływ płaszczyzny pierwszego bitu nie jest zauważalny gołym okiem. Można
+to wykorzystać do ukrycia na obrazie informacji w taki sposób, aby ta nie była
+widoczna (zamienić pierwszy poziom bitowy obrazu na inny czarno-biały obraz)
+−→ steganografia. Wyodrębnienie pierwszej płaszczyzny bitowej ze zmienionego obrazu pozwala na odczytanie ukrytej informacji.
+Steganografia nie jest jednak metodą szyfrowania, ponieważ nie jest tu używany żaden klucz. Każdy, kto zna procedurę, może ponownie wyodrębnić wiadomość/informację. Proces steganofrafii można wykorzystać na przykład do włą-
+czenia znaku wodnego do obrazu

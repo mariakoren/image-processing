@@ -66,9 +66,10 @@ red_channel = np.array([red_contrast(x) for x in range(256)], dtype=np.uint8)
 image_rgb_new = image_rgb.copy()
 
 # Modyfikacja kanałów RGB na podstawie funkcji kontrastu
-image_rgb_new[:, :, 0] = blue_channel[image_rgb[:, :, 0]]  # Kanał niebieski
+image_rgb_new[:, :, 0] = red_channel[image_rgb[:, :, 2]]    # Kanał czerwony
 image_rgb_new[:, :, 1] = green_channel[image_rgb[:, :, 1]]  # Kanał zielony
-image_rgb_new[:, :, 2] = red_channel[image_rgb[:, :, 2]]    # Kanał czerwony
+image_rgb_new[:, :, 2] = blue_channel[image_rgb[:, :, 0]]  # Kanał niebieski
+
 
 # Wyświetlenie oryginalnego obrazu i zmodyfikowanego obrazu
 plt.figure(figsize=(10, 5))
