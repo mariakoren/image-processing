@@ -3,7 +3,8 @@ from PIL import Image
 
 def apply_dithering(image, dithering_matrix, levels):
     matrix_size = dithering_matrix.shape[0]
-    normalized_matrix = dithering_matrix / (matrix_size**2 - 1)
+    # normalized_matrix = dithering_matrix / (matrix_size**2 - 1)
+    normalized_matrix = dithering_matrix / (np.max(dithering_matrix) + 1)
     img_array = np.array(image, dtype=np.float32) / 255.0 
     thresholds = np.linspace(0, 1, levels, endpoint=False)
     height, width = img_array.shape

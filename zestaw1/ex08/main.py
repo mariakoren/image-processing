@@ -48,11 +48,11 @@ def apply_thresholds(value):
     """
     if value < 20:
         return 0
-    elif value < 60:
+    elif value < 40:
         return 64
-    elif value < 120:
+    elif value < 60:
         return 128
-    elif value < 200:
+    elif value < 120:
         return 192
     else:
         return 255

@@ -14,3 +14,10 @@ jako metoda Otsy (plik roze-a)
 Dla opcji C:
 
 Image > Adjust > Local Threhold i radius ustawic na 11 -- nie poprawnie, trzeba zakodować
+
+
+Kod programu zawarty w pliku main.py, pliki wyjściowe to:
+
+A - binary_global.png
+B - binary_iterative.png
+C - binary_local.png

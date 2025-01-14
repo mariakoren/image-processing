@@ -1,3 +1,5 @@
+Obliczenia main.py:
+
 Kontrast globalny:
 MuchaA: 56.439780658941416
 MuchaB: 28.46334778386712
@@ -6,3 +8,19 @@ Kontrast lokalny:
 MuchaA: 20.955556918613023
 MuchaB: 10.124813987103106
 MuchaC: 20.30685327516041
+
+
+
+Obliczenia main2.py:
+
+Kontrast globalny:
+Mucha A: 1.0
+Mucha B: 0.5058823529411764
+Mucha C: 1.0
+Kontrast lokalny:
+Mucha A: 13.003179477634314
+Mucha B: 6.367392518145899
+Mucha C: 12.490982929843401
+
+
+Globalny z pliku main2.py, lokalny z main.py
