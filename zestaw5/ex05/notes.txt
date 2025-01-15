@@ -1,1 +1,3 @@
 a) ImageJ -> Process -> Filters -> Median -> Radius 3
+
+szczeguły
