@@ -1,0 +1,27 @@
+Wzór na odległość od punktu 0,0,0 => x²+ y² + z²
+Odległości dla kolejnych pikseli 
+C1 = sqrt(125² + 130² + 240² )~ 300.20
+C2 = sqrt(120² + 250² + 75²  )~ 287.27
+C3 = sqrt(235² + 55²  + 130² )~ 274.13
+C4 = sqrt(130² + 130² + 190² )~ 264.39
+C5 = sqrt(255² + 240² + 0²   )~ 350.17
+C6 = sqrt(35²  + 180² + 75²  )~ 198.12
+C7 = sqrt(165² + 75²  + 165² )~ 245.11
+C8 = sqrt(195² + 195² + 195² )~ 337.75
+C9 = sqrt(255² + 175² + 200² )~ 368.31
+
+a) dla filtra minimalnego wybieramy najmniejszą wartość i ją będzie zastępiony piksel, najmniejsza wartość wśród 
+min(300, 287, 274, 264, 350, 198, 245, 337, 368)=198=C6
+
+
+Min = 198 = C6 (35,180,75)
+
+b) dla filtra maksymalnego wybieramy największą wartość i ją będzie zastępiony piksel, największa wartość wśród 
+max(300, 287, 274, 264, 350, 198, 245, 337, 368)=368=C9
+
+Max = 368 = C9(255,175,200)
+
+c) dla filtra medialnego wybieramy medialną wartość, w tym celu uszeregujemy otrzymane wartości: 
+198, 245, 264, 274, 287, 300, 337, 350, 368
+Median = 287 = C2(120,250,75)
+
