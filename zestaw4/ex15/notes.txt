@@ -1,0 +1,3 @@
+1) Process > Filters > Gaussian Blur plik nosorozec-wygladzony
+2) Process > Image Calculator nosorozec, substract, nosorozec-wygladzony: plik nieostra maska
+3) Process > Image Calculator nosorozec, add, nieostra maska: plik result of nosorozec
