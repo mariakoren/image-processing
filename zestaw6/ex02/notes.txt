@@ -1,0 +1,6 @@
+jeżeli 1  czarny 0 biały 
+
+wpisać w imagej to kolory na odwrót i wynik po erozji (proces -> binary -> erode)
+plik image2
+
+jeżeli wpisać 0 czarny 1 biały to wynik po erozji image
