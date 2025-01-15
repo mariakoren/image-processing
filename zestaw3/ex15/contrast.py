@@ -41,7 +41,7 @@ c_global2 = global_contrast(image2)
 
 print("Kontrast globalny:")
 print(f"Torus-a: {c_global1}") # Torus-a: 1.0
-print(f"Torus: {c_global2}") # Torus-a: 0.9137254901960784
+print(f"Torus: {c_global2}") # Torus: 0.9137254901960784
 
 
 

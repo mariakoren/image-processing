@@ -14,8 +14,6 @@ def adjust_contrast(channel_values, contrast_function):
     return np.vectorize(contrast_function)(channel_values)
 
 # Funkcje kontrastu dla każdego z kanałów (niebieski, zielony, czerwony)
-
-# Niebieski: w punkcie 0 ma wartość 128, w 31 ma 255, potem spada do 0 w punkcie 159
 def blue_contrast(x):
     if x <= 31:
         return 128 + (x / 31) * (255 - 128)  # rośnie od 128 do 255
@@ -26,7 +24,6 @@ def blue_contrast(x):
     else:
         return 0  # pozostaje na 0
 
-# Zielony: dla wartości od 0 do 31 ma wartość 0, potem rośnie do 255 w 95, potem spada do 0 w 233
 def green_contrast(x):
     if x <= 31:
         return 0  # stała wartość 0
@@ -39,7 +36,6 @@ def green_contrast(x):
     else:
         return 0  # pozostaje na 0
 
-# Czerwony: do 95 ma wartość 0, potem rośnie do 255 w 159, pozostaje 255 do 223, potem spada do 128 w 255
 def red_contrast(x):
     if x <= 95:
         return 0  # stała wartość 0
@@ -71,6 +67,8 @@ image_rgb_new[:, :, 1] = green_channel[image_rgb[:, :, 1]]  # Kanał zielony
 image_rgb_new[:, :, 2] = blue_channel[image_rgb[:, :, 0]]  # Kanał niebieski
 
 
+cv2.imwrite('adjusted_image.png', cv2.cvtColor(image_rgb_new, cv2.COLOR_RGB2BGR))  # Zapisz po transformacji
+
 # Wyświetlenie oryginalnego obrazu i zmodyfikowanego obrazu
 plt.figure(figsize=(10, 5))
 
@@ -86,4 +84,4 @@ plt.imshow(image_rgb_new)
 plt.title("Obraz po transformacji kontrastu")
 plt.axis("off")
 
-plt.show()
+plt.savefig("all.png")

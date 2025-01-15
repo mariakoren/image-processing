@@ -23,4 +23,4 @@ Mucha B: 6.367392518145899
 Mucha C: 12.490982929843401
 
 
-Globalny z pliku main2.py, lokalny z main.py
+WARTOŚCI Z MAIN2.PY
