@@ -1,0 +1,1 @@
+Zastosowano tutaj operację erozji używając obiektu strukturalnego

@@ -1,0 +1,1 @@
+Zastosowano tutaj operację dylatacji używając obiektu strukturalnego  
