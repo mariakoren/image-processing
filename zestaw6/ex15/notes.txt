@@ -1,0 +1,4 @@
+d)
+
+Process -> Binary -> Make Binary
+Process -> Binary -> Skeletonize
