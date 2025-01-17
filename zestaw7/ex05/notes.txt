@@ -1,0 +1,9 @@
+a) wygładzenie
+
+Process -> Filters -> Gaussian Blur 2
+
+b) filtr sobela - program b.py
+
+f) 
+T1: 32.0
+T2: 64
