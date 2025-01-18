@@ -1,78 +1,44 @@
 import cv2
 import numpy as np
-import math
 
-def compute_gradients(image_path):
-    # Wczytanie obrazu w skali szarości
-    image = cv2.imread(image_path, cv2.IMREAD_GRAYSCALE)
-    if image is None:
-        raise ValueError("Nie udało się wczytać obrazu. Sprawdź ścieżkę.")
+def quantize_angle(angle):
+    """Przyporządkuj kierunki gradientu do głównych kierunków krawędzi."""
+    # Możliwe kierunki: poziomy (0), pionowy (90), ukośne (45, 135)
+    if (angle >= 0 and angle < 22.5) or (angle >= 157.5 and angle < 202.5) or (angle >= 337.5 and angle < 360):
+        return 0  # poziomy
+    elif (angle >= 22.5 and angle < 67.5) or (angle >= 202.5 and angle < 247.5):
+        return 45  # ukośny
+    elif (angle >= 67.5 and angle < 112.5) or (angle >= 247.5 and angle < 292.5):
+        return 90  # pionowy
+    else:
+        return 135  # ukośny drugi kierunek
 
-    # Obliczenie gradientów kierunkowych za pomocą filtrów Sobela
-    sobel_x = cv2.Sobel(image, cv2.CV_64F, 1, 0, ksize=3)
-    sobel_y = cv2.Sobel(image, cv2.CV_64F, 0, 1, ksize=3)
+def process_image(input_file, output_file):
+    # Wczytaj obraz w skali szarości
+    img = cv2.imread(input_file, cv2.IMREAD_GRAYSCALE)
+    if img is None:
+        raise ValueError("Nie udało się wczytać obrazu.")
 
-    # Gradienty zgodnie z normą L∞ (maksimum wartości)
-    gx = np.max(np.abs(sobel_x), axis=0)
-    gy = np.max(np.abs(sobel_y), axis=0)
+    # Oblicz gradienty Sobela
+    sobel_x = cv2.Sobel(img, cv2.CV_64F, 1, 0, ksize=3)
+    sobel_y = cv2.Sobel(img, cv2.CV_64F, 0, 1, ksize=3)
 
-    # Wartość gradientu G (norma euklidesowa)
-    G = np.sqrt(sobel_x**2 + sobel_y**2)
+    # Oblicz wielkość i kierunek gradientu
+    magnitude = np.sqrt(sobel_x**2 + sobel_y**2)
+    angle = np.arctan2(sobel_y, sobel_x) * (180 / np.pi)  # Konwersja na stopnie
+    angle[angle < 0] += 360  # Ustawienie wartości kąta w zakresie [0, 360)
 
-    # Kąt gradientu θ (w stopniach)
-    theta = np.arctan2(sobel_y, sobel_x) * (180 / np.pi)
+    # Kwantyzacja kierunków gradientu
+    quantized_angles = np.vectorize(quantize_angle)(angle)
 
-    # Normalizacja kątów do przedziału [0, 360)
-    theta = (theta + 360) % 360
+    # Przekształć kwantyzowane kierunki na wartości wizualne (np. 0-255)
+    output_img = np.uint8((quantized_angles / 135) * 255)
 
-    return gx, gy, G, theta
-
-def assign_edge_directions(theta):
-    """
-    Przyporządkowuje kierunkom gradientu możliwe kierunki krawędzi.
-    Zwraca macierz z przypisanymi kierunkami: poziome, pionowe, ukośne.
-    """
-    directions = np.empty_like(theta, dtype=object)
-    for i in range(theta.shape[0]):
-        for j in range(theta.shape[1]):
-            angle = theta[i, j]
-            if (0 <= angle < 22.5) or (157.5 <= angle < 202.5) or (337.5 <= angle <= 360):
-                directions[i, j] = "Horizontal"
-            elif (22.5 <= angle < 67.5) or (202.5 <= angle < 247.5):
-                directions[i, j] = "Diagonal /"
-            elif (67.5 <= angle < 112.5) or (247.5 <= angle < 292.5):
-                directions[i, j] = "Vertical"
-            else:
-                directions[i, j] = "Diagonal \\\""
-    return directions
-
-# def save_results_to_file(G, theta, directions, output_file):
-#     with open(output_file, 'w') as f:
-#         for i in range(G.shape[0]):
-#             for j in range(G.shape[1]):
-#                 f.write(f"Pixel({i},{j}): G={G[i, j]:.2f}, Theta={theta[i, j]:.2f}, Direction={directions[i, j]}\n")
-
-def apply_gradients_to_image(G, theta, output_image_g, output_image_theta):
-    # Normalizacja wartości G do przedziału 0-255
-    G_normalized = cv2.normalize(G, None, 0, 255, cv2.NORM_MINMAX).astype(np.uint8)
-    cv2.imwrite(output_image_g, G_normalized)
-
-    # Normalizacja wartości Theta do przedziału 0-255 (mapowanie kątów)
-    theta_normalized = cv2.normalize(theta, None, 0, 255, cv2.NORM_MINMAX).astype(np.uint8)
-    cv2.imwrite(output_image_theta, theta_normalized)
+    # Zapisz wynikowy obraz
+    cv2.imwrite(output_file, output_img)
 
 # Przykład użycia
-if __name__ == "__main__":
-    image_path = "pajak-a.png"  # Zamień na ścieżkę do swojego obrazu
-    output_image_g = "pajak-d-gradient.png"
-    output_image_theta = "pajak-d-theta.png"
-
-    try:
-        gx, gy, G, theta = compute_gradients(image_path)
-        directions = assign_edge_directions(theta)
-        # save_results_to_file(G, theta, directions, output_file)
-        apply_gradients_to_image(G, theta, output_image_g, output_image_theta)
-
-        print(f"Obrazy gradientu G i Theta zapisane do plików: {output_image_g}, {output_image_theta}")
-    except ValueError as e:
-        print(e)
+input_file = "pajak-a.png"  # Zmień na ścieżkę do swojego pliku wejściowego
+output_file = "pajak-d.png"  # Zmień na ścieżkę do swojego pliku wynikowego
+process_image(input_file, output_file)
+print("Obraz wynikowy zapisany do", output_file)
